@@ -1,0 +1,73 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define size 4
+int top=-1,stk[size];
+void push();
+void pop();
+void display();
+int main()
+{
+	int choice;
+	do
+	{
+		printf("menu\n");
+		printf("1.push");
+		printf("2.pop");
+		printf("3.display");
+		printf("4.exit");
+		printf("enter your choice");
+		scanf("%d",&choice);
+		switch(choice)
+		{
+			case 1:push();
+			break;
+			case 2:pop();
+			break;
+			case 3:display();
+			break;
+			case 4:exit(0);
+		}
+	}
+	while(choice>=0&&choice<=4);
+}
+void push()
+{
+	int ele;
+	printf("enter the elements");
+	scanf("%d",&ele);
+	if(top==size-1)
+	printf("the stack is full/overflow");
+	else
+	{
+		top=top+1;
+		stk[top]=ele;
+	}
+}
+void pop()
+{
+	int ele;
+	printf("enter the elements");
+	scanf("%d",&ele);
+	if(top==-1)
+	printf("the stack is empty/underflow");
+	else
+	{
+		ele=stk[top];
+		top=top-1;
+	}
+	printf("the delete element=%d",ele);
+} 
+void display()
+{
+	int i;
+	if(top==-1)
+	{
+		printf("\nunderflow!!");
+	}
+	else
+	{
+		printf("\n elements present in the stack:\n");
+		for(i=top;i>=0;--i)
+		printf("%d\n",stk[i]);
+	}
+}
